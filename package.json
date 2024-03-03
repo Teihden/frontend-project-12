@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "analog of Slack chat (simplified version)",
+  "main": "src/index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "start": "start-server -s ./frontend/build",
+    "postinstall": "cd frontend && npm ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teihden/frontend-project-12.git"
+  },
+  "author": "Teihden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teihden/frontend-project-12.git/issues"
+  },
+  "homepage": "https://github.com/Teihden/frontend-project-12#readme",
+  "dependencies": {
+    "@hexlet/chat-server": "^2.0.0"
+  },
+  "devDependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}

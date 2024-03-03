@@ -9,7 +9,7 @@
 
 ## Usage
 
-You should have Node.js installed before proceeding. Only test JS against v18 and on macOS.
+You should have Node.js installed before proceeding. Only test JS against v21 and on macOS.
 
 ```shell
 # Clone the repo
