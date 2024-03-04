@@ -10,9 +10,12 @@ start-frontend:
 start-backend:
 	npx start-server
 
-start:
+develop:
 	make start-backend & make start-frontend
 
 build:
 	rm -rf frontend/build
 	npm run build
+
+server:
+	npm run start
