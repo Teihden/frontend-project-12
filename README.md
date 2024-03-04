@@ -6,7 +6,8 @@
 
 **"Chat (Slack)"** is real-time application, analog of Slack chat (simplified version) on React/Redux, using AJAX, REST, Websockets, React (with hooks) + Redux (@reduxjs/toolkit) + Formik.
 
-## Deployment
+## Render Deployment
+[https://frontend-project-12-634s.onrender.com/](https://frontend-project-12-634s.onrender.com/)
 
 ## Usage
 
