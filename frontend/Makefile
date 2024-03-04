@@ -1,4 +1,4 @@
-install:
+ci:
 	npm ci
 
 start:

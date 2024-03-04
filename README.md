@@ -1,5 +1,6 @@
 # Project "Chat (Slack)"
 [![Actions Status](https://github.com/Teihden/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Teihden/frontend-project-12/actions)
+[![CI](https://github.com/Teihden/frontend-project-12/workflows/CI/badge.svg)](https://github.com/Teihden/frontend-project-12/actions/workflows/CI.yml)
 
 ## About
 
