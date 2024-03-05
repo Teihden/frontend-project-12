@@ -17,4 +17,26 @@ You should have Node.js installed before proceeding. Only test JS against v21 an
 # Clone the repo
 git clone https://github.com/Teihden/frontend-project-12
 cd frontend-project-12
+
+# Runs the linter to check frontend code for errors and style violations.
+make lint-frontend
+
+# Performs installation of project dependencies from package.json
+make ci
+
+# Starts the development server for the frontend
+make start-frontend
+
+# Starts the development server for the backend
+make start-backend
+
+# Runs concurrent development for both frontend and backend in watch mode
+make develop
+
+# Cleans the frontend build directory (frontend/build) and runs the build process
+make build
+
+# Starts the server to serve the application in a production environment.
+make server
 ```
+
