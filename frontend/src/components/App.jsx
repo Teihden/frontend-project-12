@@ -1,12 +1,12 @@
 import '../assets/styles/styles.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NotFound from './NotFound.jsx';
+import NotFoundPage from './NotFoundPage.jsx';
 
 const App = () => (
   <BrowserRouter>
     <Routes>
       {/* <Route path={['/', '/login']} element={<AuthForm />} /> */}
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );

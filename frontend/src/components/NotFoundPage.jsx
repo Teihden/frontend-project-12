@@ -1,7 +1,7 @@
 import { Container, Navbar, Image } from 'react-bootstrap';
 import image from '../assets/images/404.svg';
 
-const NotFound = () => (
+const NotFoundPage = () => (
   <div className="h-100">
     <div className="h-100" id="chat">
       <div className="d-flex flex-column h-100">
@@ -26,4 +26,4 @@ const NotFound = () => (
   </div>
 );
 
-export default NotFound;
+export default NotFoundPage;
