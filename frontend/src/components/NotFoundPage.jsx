@@ -12,7 +12,7 @@ const NotFoundPage = () => (
     <p className="text-muted">
       <span>Но вы можете перейти</span>
       {' '}
-      <Link to={routes.root()}>на главную страницу</Link>
+      <Link to={routes.rootPage()}>на главную страницу</Link>
     </p>
   </div>
 );

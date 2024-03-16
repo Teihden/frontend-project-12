@@ -1,8 +1,11 @@
+const SERVER_PATH = '/api/v1';
+
 const routes = {
-  any: () => '*',
-  root: () => '/',
-  login: () => '/login',
-  signup: () => '/signup',
+  loginPath: () => [SERVER_PATH, 'login'].join('/'),
+  anyPage: () => '*',
+  rootPage: () => '/',
+  loginPage: () => '/login',
+  signupPage: () => '/signup',
 };
 
 export default routes;

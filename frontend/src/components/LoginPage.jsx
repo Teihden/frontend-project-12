@@ -1,10 +1,23 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { Card, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { actions } from '../store/index.js';
+import { sendData } from '../api/httpapi.js';
 import image from '../assets/images/avatar-2.jpg';
 import routes from '../api/routes.js';
 
-const LoginForm = () => {
+const LoginPage = () => {
+  const dispatch = useDispatch();
+  const [authFailed, setAuthFailed] = useState(false);
+  const inputRef = useRef();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -12,7 +25,26 @@ const LoginForm = () => {
     },
     onSubmit: (values, { setSubmitting }) => {
       console.debug(values);
-      setSubmitting(false);
+      setAuthFailed(false);
+      setSubmitting(true);
+
+      sendData({
+        url: routes.loginPath(),
+        body: values,
+        onSuccessCb: (resp) => {
+          dispatch(actions.setCredentials(resp.data));
+          navigate(routes.rootPage());
+        },
+        onErrorCb: (err) => {
+          if (err.response?.status === 401) {
+            setAuthFailed(true);
+            inputRef.current.focus();
+          }
+        },
+        onFinallyCb: () => {
+          setSubmitting(false);
+        },
+      });
     },
   });
 
@@ -29,11 +61,13 @@ const LoginForm = () => {
               <Form.Control
                 id="username"
                 name="username"
-                required
                 autoComplete="username"
                 onChange={formik.handleChange}
                 value={formik.values.username}
                 placeholder="Ваш ник"
+                required
+                isInvalid={authFailed}
+                ref={inputRef}
               />
               <Form.Label>Ваш ник</Form.Label>
             </Form.Group>
@@ -41,13 +75,15 @@ const LoginForm = () => {
               <Form.Control
                 id="password"
                 name="password"
-                required
                 autoComplete="current-password"
                 onChange={formik.handleChange}
                 value={formik.values.password}
                 placeholder="Ваш пароль"
+                required
+                isInvalid={authFailed}
               />
               <Form.Label>Ваш пароль</Form.Label>
+              {authFailed && <Form.Control.Feedback type="invalid" tooltip>Неверные имя пользователя или пароль</Form.Control.Feedback>}
             </Form.Group>
             <Button className="w-100 mb-2" variant="outline-secondary" type="submit" disabled={formik.isSubmitting}>Войти</Button>
           </Form>
@@ -56,7 +92,7 @@ const LoginForm = () => {
           <div className="text-center fw-bold">
             <span>Нет аккаунта?</span>
             {' '}
-            <Link to={routes.signup()}>Регистрация</Link>
+            <Link to={routes.signupPage()}>Регистрация</Link>
           </div>
         </Card.Footer>
       </Card>
@@ -64,4 +100,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginPage;

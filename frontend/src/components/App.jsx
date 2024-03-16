@@ -1,21 +1,32 @@
 import '../assets/styles/styles.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import NotFoundPage from './NotFoundPage.jsx';
-import LoginForm from './LoginForm.jsx';
-import routes from '../api/routes.js';
+import ChatPage from './ChatPage.jsx';
+import LoginPage from './LoginPage.jsx';
 import Navigation from './Navigation.jsx';
+import routes from '../api/routes.js';
 
-const App = () => (
-  <BrowserRouter>
-    <div className="vh-100 d-flex flex-column">
-      <Navigation />
-      <Routes>
-        <Route path={routes.any()} element={<NotFoundPage />} />
-        <Route path={routes.root()} element={<LoginForm />} />
-        <Route path={routes.login()} element={<LoginForm />} />
-      </Routes>
-    </div>
-  </BrowserRouter>
-);
+const App = () => {
+  const auth = useSelector((state) => state.auth);
+
+  return (
+    <BrowserRouter>
+      <div className="vh-100 d-flex flex-column">
+        <Navigation />
+        <Routes>
+          <Route path={routes.anyPage()} element={<NotFoundPage />} />
+          <Route
+            path={routes.rootPage()}
+            element={auth?.token
+              ? <ChatPage />
+              : <Navigate to={routes.loginPage()} />}
+          />
+          <Route path={routes.loginPage()} element={<LoginPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;
