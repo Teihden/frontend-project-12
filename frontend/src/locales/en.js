@@ -18,6 +18,9 @@ const en = {
       brand: 'Hexlet Chat',
       logout: 'Log out',
     },
+    Loader: {
+      loading: 'Loading...',
+    },
   },
 };
 

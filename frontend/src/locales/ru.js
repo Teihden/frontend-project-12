@@ -18,6 +18,9 @@ const ru = {
       brand: 'Hexlet Chat',
       logout: 'Выйти',
     },
+    Loader: {
+      loading: 'Загрузка...',
+    },
   },
 };
 
