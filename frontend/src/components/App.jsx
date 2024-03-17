@@ -1,5 +1,10 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import '../assets/styles/styles.scss';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import NotFoundPage from './NotFoundPage.jsx';
 import ChatPage from './ChatPage.jsx';
@@ -8,7 +13,7 @@ import Navigation from './Navigation.jsx';
 import routes from '../api/routes.js';
 
 const App = () => {
-  const auth = useSelector((state) => state.auth);
+  const authState = useSelector((state) => state.auth);
 
   return (
     <BrowserRouter>
@@ -18,7 +23,7 @@ const App = () => {
           <Route path={routes.anyPage()} element={<NotFoundPage />} />
           <Route
             path={routes.rootPage()}
-            element={auth?.token
+            element={authState?.userToken
               ? <ChatPage />
               : <Navigate to={routes.loginPage()} />}
           />

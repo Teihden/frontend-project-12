@@ -8,12 +8,12 @@ const slice = createSlice({
     setCredentials(state, { payload: { username, token } }) {
       localStorage.setItem('userToken', JSON.stringify({ username, token }));
       state.username = username;
-      state.token = token;
+      state.userToken = token;
     },
     removeCredentials(state) {
       localStorage.removeItem('userToken');
       state.username = null;
-      state.token = null;
+      state.userToken = null;
     },
   },
 });

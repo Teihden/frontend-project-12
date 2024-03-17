@@ -3,15 +3,20 @@ import axios from 'axios';
 const noop = () => { };
 
 const request = (
-  method = 'post',
   {
     url,
-    body = null,
+    method = 'post',
+    data = null,
     onSuccessCb = noop,
     onErrorCb = noop,
     onFinallyCb = noop,
   } = {},
-) => axios[method](url, body)
+) => axios.request({
+  url,
+  method,
+  data,
+  timeout: 5000,
+})
   .then((resp) => {
     console.debug(resp);
     onSuccessCb(resp);
@@ -22,8 +27,8 @@ const request = (
   })
   .finally(() => onFinallyCb());
 
-const getData = (options) => request('get', options);
+const getData = (config) => request({ method: 'get', ...config });
 
-const sendData = (options) => request('post', options);
+const sendData = (config) => request({ method: 'post', ...config });
 
 export { getData, sendData };
