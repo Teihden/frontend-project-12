@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
   name: 'auth',
-  initialState: JSON.parse(localStorage.getItem('userToken')) || { username: null, token: null },
+  initialState: JSON.parse(localStorage.getItem('userToken')) || { username: null, userToken: null },
   reducers: {
     setCredentials(state, { payload: { username, token } }) {
-      localStorage.setItem('userToken', JSON.stringify({ username, token }));
+      localStorage.setItem('userToken', JSON.stringify({ username, userToken: token }));
       state.username = username;
       state.userToken = token;
     },

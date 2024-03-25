@@ -21,6 +21,16 @@ const en = {
     Loader: {
       loading: 'Loading...',
     },
+    channels: {
+      add: 'Add channel',
+      menu: 'Channel control',
+      remove: 'Remove',
+      rename: 'Rename',
+      channels: 'Channels',
+      created: 'Channel created',
+      renamed: 'Channel renamed',
+      removed: 'Channel removed',
+    },
   },
 };
 

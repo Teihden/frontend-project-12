@@ -15,6 +15,8 @@ import routes from '../api/routes.js';
 const App = () => {
   const authState = useSelector((state) => state.auth);
 
+  console.debug('authState', authState);
+
   return (
     <BrowserRouter>
       <div className="vh-100 d-flex flex-column">

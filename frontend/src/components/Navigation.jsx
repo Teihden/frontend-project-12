@@ -15,7 +15,7 @@ const Nav = () => {
     <Navbar className="shadow-sm" bg="white" expand="lg" data-bs-theme="light">
       <Container>
         <Navbar.Brand href={routes.rootPage()}>{t('Navigation.brand')}</Navbar.Brand>
-        {authState.userToken && <Button onClick={logout}>{t('Navigation.logout')}</Button>}
+        {authState.userToken && <Button onClick={logout} variant="secondary">{t('Navigation.logout')}</Button>}
       </Container>
     </Navbar>
   );
