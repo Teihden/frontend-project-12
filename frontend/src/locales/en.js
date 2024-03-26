@@ -31,6 +31,11 @@ const en = {
       renamed: 'Channel renamed',
       removed: 'Channel removed',
     },
+    chat: {
+      send: 'Send',
+      messageCount: 'message',
+      messageCount_plural: 'messages',
+    },
   },
 };
 

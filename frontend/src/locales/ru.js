@@ -31,6 +31,14 @@ const ru = {
       renamed: 'Канал переименован',
       removed: 'Канал удалён',
     },
+    chat: {
+      send: 'Отправить',
+      messageCount_zero: 'сообщений',
+      messageCount_one: 'сообщение',
+      messageCount_few: 'сообщения',
+      messageCount_many: 'сообщений',
+      newMessage: 'Новое сообщение',
+    },
   },
 };
 

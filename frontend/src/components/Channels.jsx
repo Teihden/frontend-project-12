@@ -16,9 +16,9 @@ const Channels = () => {
           <Plus size={22} />
         </Button>
       </div>
-      <ul id="channels" className="h-100 d-block flex-column nav nav-pills nav-fill px-2 mb-3 overflow-auto">
+      <ul id="channels-box" className="h-100 d-block flex-column nav nav-pills nav-fill px-2 mb-3 overflow-auto">
         {channels.map((channel) => (
-          <Channel key={channel.id} channel={channel} />
+          <Channel key={channel.id} data={channel} />
         ))}
       </ul>
     </div>
