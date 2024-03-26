@@ -38,6 +38,10 @@ const ru = {
       messageCount_few: 'сообщения',
       messageCount_many: 'сообщений',
       newMessage: 'Новое сообщение',
+      enterMessage: 'Введите сообщение...',
+    },
+    validation: {
+      required: 'Обязательное поле',
     },
   },
 };

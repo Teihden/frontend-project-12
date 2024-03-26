@@ -14,4 +14,4 @@ eject:
 	npm eject
 
 lint:
-	npx eslint --ext js,jsx --no-eslintrc --config .eslintrc.yml .
+	npx eslint --ext js,jsx --no-eslintrc --config .eslintrc.yml . --fix

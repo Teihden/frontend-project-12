@@ -35,6 +35,10 @@ const en = {
       send: 'Send',
       messageCount: 'message',
       messageCount_plural: 'messages',
+      enterMessage: 'Enter a message...',
+    },
+    validation: {
+      required: 'Required field',
     },
   },
 };
