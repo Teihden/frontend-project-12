@@ -21,7 +21,7 @@ const ru = {
     Loader: {
       loading: 'Загрузка...',
     },
-    channels: {
+    channel: {
       add: 'Добавить канал',
       menu: 'Управление каналом',
       remove: 'Удалить',
@@ -31,7 +31,7 @@ const ru = {
       renamed: 'Канал переименован',
       removed: 'Канал удалён',
     },
-    chat: {
+    message: {
       send: 'Отправить',
       messageCount_zero: 'сообщений',
       messageCount_one: 'сообщение',

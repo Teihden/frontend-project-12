@@ -11,8 +11,8 @@ const Channels = () => {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mt-1 mb-3 ps-3 pe-2 p-4">
-        <h1 className="h5 m-0">{t('channels.channels')}</h1>
-        <Button className="p-0 ratio ratio-1x1" type="button" variant="outline-dark" title={t('channels.add')} aria-label={t('channels.add')} style={{ width: '13%' }}>
+        <h1 className="h5 m-0">{t('channel.channels')}</h1>
+        <Button className="p-0 ratio ratio-1x1" type="button" variant="outline-dark" title={t('channel.add')} aria-label={t('channel.add')} style={{ width: '13%' }}>
           <Plus size={22} />
         </Button>
       </div>

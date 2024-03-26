@@ -17,7 +17,7 @@ const Messages = () => {
     <>
       <div className="bg-light mb-4 p-3 rounded-3 shadow-sm small">
         <p className="m-0 fw-bold">{`# ${channel?.name}`}</p>
-        <span className="text-muted">{`${filteredMessages.length} ${t('chat.messageCount', { count: filteredMessages.length })}`}</span>
+        <span className="text-muted">{`${filteredMessages.length} ${t('message.messageCount', { count: filteredMessages.length })}`}</span>
       </div>
       <div id="messages-box" className="chat-messages overflow-auto px-4">
         {filteredMessages.map((filteredMessage) => (

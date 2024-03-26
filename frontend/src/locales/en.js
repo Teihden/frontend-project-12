@@ -21,7 +21,7 @@ const en = {
     Loader: {
       loading: 'Loading...',
     },
-    channels: {
+    channel: {
       add: 'Add channel',
       menu: 'Channel control',
       remove: 'Remove',
@@ -31,7 +31,7 @@ const en = {
       renamed: 'Channel renamed',
       removed: 'Channel removed',
     },
-    chat: {
+    message: {
       send: 'Send',
       messageCount: 'message',
       messageCount_plural: 'messages',
