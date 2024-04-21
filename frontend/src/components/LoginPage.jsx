@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { Card, Form, Button } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { actions } from '../store/index.js';
+import { actions } from '../store';
 import { sendData } from '../api/httpApi.js';
 import image from '../assets/images/avatar-2.jpg';
 import routes from '../api/routes.js';
