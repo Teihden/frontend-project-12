@@ -1,7 +1,7 @@
 import { Container, Navbar, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../store/index.js';
+import { actions } from '../store';
 import routes from '../api/routes.js';
 
 const Nav = () => {

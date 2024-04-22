@@ -24,12 +24,14 @@ const ru = {
     channel: {
       add: 'Добавить канал',
       menu: 'Управление каналом',
-      remove: 'Удалить',
-      rename: 'Переименовать',
+      remove: 'Удалить канал',
+      rename: 'Переименовать канал',
       channels: 'Каналы',
       created: 'Канал создан',
       renamed: 'Канал переименован',
       removed: 'Канал удалён',
+      channelName: 'Имя канала',
+      editChannelName: 'Новое имя канала',
     },
     message: {
       send: 'Отправить',
@@ -42,6 +44,16 @@ const ru = {
     },
     validation: {
       required: 'Обязательное поле',
+      min: 'От 3 до 20 символов',
+      max: 'От 3 до 20 символов',
+      uniq: 'Должно быть уникальным',
+    },
+    modals: {
+      cancel: 'Отменить',
+      submit: 'Отправить',
+      confirmation: 'Уверены?',
+      confirm: 'Удалить',
+      close: 'Закрыть',
     },
   },
 };

@@ -24,12 +24,14 @@ const en = {
     channel: {
       add: 'Add channel',
       menu: 'Channel control',
-      remove: 'Remove',
-      rename: 'Rename',
+      remove: 'Remove channel',
+      rename: 'Rename channel',
       channels: 'Channels',
       created: 'Channel created',
       renamed: 'Channel renamed',
       removed: 'Channel removed',
+      channelName: 'Chanel name',
+      editChannelName: 'New channel name',
     },
     message: {
       send: 'Send',
@@ -39,6 +41,17 @@ const en = {
     },
     validation: {
       required: 'Required field',
+      min: 'Must be 3 to 20 characters',
+      max: 'Must be 3 to 20 characters',
+      uniq: 'Must be unique',
+    },
+    modals: {
+      cancel: 'Cancel',
+      submit: 'Submit',
+      remove: 'Remove channel',
+      confirmation: 'Are you sure?',
+      confirm: 'Confirm',
+      close: 'Close',
     },
   },
 };

@@ -1,12 +1,26 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonGroup, Dropdown } from 'react-bootstrap';
+import { actions } from '../store';
 
 const Channel = ({ data }) => {
   const { id, name, removable } = data;
   const activeChannelId = useSelector((state) => state.ui.activeChannelId);
   const { t } = useTranslation();
   const variant = id === activeChannelId ? 'secondary' : null;
+  const dispatch = useDispatch();
+
+  const handleSelectChannelBtnClick = () => () => {
+    dispatch(actions.setActiveChannelId({ id }));
+  };
+
+  const handleRenameChannelItemClick = () => () => {
+    dispatch(actions.openModal({ component: 'rename', channel: { id } }));
+  };
+
+  const handleRemoveChannelItemClick = () => () => {
+    dispatch(actions.openModal({ component: 'remove', channel: { id } }));
+  };
 
   return (
     <li key={id} className="w-100 nav-item">
@@ -17,6 +31,7 @@ const Channel = ({ data }) => {
             key={id}
             className="w-100 rounded-3 text-start text-truncate"
             variant={variant}
+            onClick={handleSelectChannelBtnClick}
           >
             <span className="me-1">#</span>
             <span>{name}</span>
@@ -25,9 +40,9 @@ const Channel = ({ data }) => {
             <span className="visually-hidden">{t('channel.menu')}</span>
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item>{t('channel.rename')}</Dropdown.Item>
+            <Dropdown.Item onClick={handleRenameChannelItemClick}>{t('channel.rename')}</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>{t('channel.remove')}</Dropdown.Item>
+            <Dropdown.Item onClick={handleRemoveChannelItemClick}>{t('channel.remove')}</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       )}
