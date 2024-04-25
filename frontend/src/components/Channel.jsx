@@ -10,15 +10,15 @@ const Channel = ({ data }) => {
   const variant = id === activeChannelId ? 'secondary' : null;
   const dispatch = useDispatch();
 
-  const handleSelectChannelBtnClick = () => () => {
+  const handleSelectChannelBtnClick = () => {
     dispatch(actions.setActiveChannelId({ id }));
   };
 
-  const handleRenameChannelItemClick = () => () => {
+  const handleRenameChannelItemClick = () => {
     dispatch(actions.openModal({ component: 'rename', channel: { id } }));
   };
 
-  const handleRemoveChannelItemClick = () => () => {
+  const handleRemoveChannelItemClick = () => {
     dispatch(actions.openModal({ component: 'remove', channel: { id } }));
   };
 
@@ -52,6 +52,7 @@ const Channel = ({ data }) => {
           variant={variant}
           key={id}
           className="w-100 rounded-3 text-start"
+          onClick={handleSelectChannelBtnClick}
         >
           <span className="me-1">#</span>
           <span>{name}</span>

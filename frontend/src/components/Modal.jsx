@@ -2,9 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal as BsModal } from 'react-bootstrap';
 import { actions } from '../store';
 import RemoveModalInnerContent from './RemoveModaInnerContent';
+import RenameModalInnerContent from './RenameModaInnerContent';
 
 const modalInnerComponents = {
   remove: RemoveModalInnerContent,
+  rename: RenameModalInnerContent,
 };
 
 const Modal = () => {

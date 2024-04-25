@@ -5,7 +5,7 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 import { Send } from 'react-bootstrap-icons';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { object, string } from 'yup';
+import { messageSchema } from '../lib/validation';
 import { useAddMessageMutation } from '../store/middlewares';
 
 const MessageForm = () => {
@@ -16,10 +16,6 @@ const MessageForm = () => {
   const [addMessage, {
     error: addMessageError, isError, isLoading,
   }] = useAddMessageMutation();
-
-  const messageSchema = object().shape({
-    message: string().trim().required('validation.required'),
-  });
 
   const formik = useFormik({
     initialValues: {

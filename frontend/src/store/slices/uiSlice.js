@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import channelsApi from '../middlewares/index';
+import Api from '../middlewares/index.js';
+
+const { channelsApi } = Api;
 
 const slice = createSlice({
   name: 'ui',
@@ -16,10 +18,10 @@ const slice = createSlice({
     setActiveChannelId(state, { payload: { id } }) {
       state.activeChannelId = id;
     },
-    openModal: (state, { payload: { component, channel: { id } } }) => {
+    openModal: (state, { payload: { component, channel } }) => {
       state.modal.isOpened = true;
       state.modal.component = component;
-      state.modal.channelId = id ?? null;
+      state.modal.channelId = channel?.id ?? null;
     },
     closeModal: (state) => {
       state.modal.isOpened = false;
