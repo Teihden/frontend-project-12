@@ -8,6 +8,7 @@ const slice = createSlice({
   name: 'ui',
   initialState: {
     activeChannelId: '1',
+    defaultChannelId: '1',
     modal: {
       isOpened: false,
       component: null,

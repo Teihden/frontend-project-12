@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Button, Modal as BsModal } from 'react-bootstrap';
-import { actions } from '../../store';
+import store, { actions } from '../../store';
 import { useRemoveChannelMutation } from '../../store/middlewares';
 
 const RemoveChannelModalInnerContent = () => {
@@ -12,6 +12,7 @@ const RemoveChannelModalInnerContent = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [removeChannel, { isError, isSuccess }] = useRemoveChannelMutation();
+  const state = store.getState();
 
   const handleClose = () => {
     dispatch(actions.closeModal());
@@ -26,7 +27,7 @@ const RemoveChannelModalInnerContent = () => {
   };
 
   if (isSuccess) {
-    dispatch(actions.setActiveChannelId({ id: '1' }));
+    dispatch(actions.setActiveChannelId({ id: state.ui.defaultChannelId }));
     handleClose();
     toast.success(t('channel.removed'));
     return null;
