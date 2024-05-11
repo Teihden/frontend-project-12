@@ -4,23 +4,21 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Button, Form, Modal as BsModal } from 'react-bootstrap';
-import { getChannelNameSchema } from '../lib/validation';
-import { actions } from '../store';
-import { useEditChannelMutation, useGetChannelsQuery } from '../store/middlewares';
+import {
+  Button, Form, InputGroup, Modal as BsModal,
+} from 'react-bootstrap';
+import { getChannelNameSchema } from '../../lib/validation';
+import { actions } from '../../store';
+import { useEditChannelMutation, useGetChannelsQuery } from '../../store/middlewares';
 
-const RenameModalInnerContent = () => {
+const RenameChannelModalInnerContent = () => {
   const { data: channels } = useGetChannelsQuery();
   const channelId = useSelector((state) => state.ui.modal.channelId);
   const channelNames = channels.map(({ name }) => name);
   const { name } = channels.find(({ id }) => channelId === id);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
-  const [
-    updateChannel,
-    { error: renameChannelError, isError, isSuccess },
-  ] = useEditChannelMutation();
+  const [updateChannel, { isError, isSuccess }] = useEditChannelMutation();
 
   const handleClose = () => {
     dispatch(actions.closeModal());
@@ -31,9 +29,10 @@ const RenameModalInnerContent = () => {
       name,
     },
     validationSchema: getChannelNameSchema(channelNames),
-    validateOnBlur: false,
+    validateOnBlur: true,
     onSubmit: async (values, { setSubmitting }) => {
-      console.debug(values);
+      console.debug('RenameChannelModal values', values);
+
       setSubmitting(true);
 
       const data = {
@@ -42,19 +41,21 @@ const RenameModalInnerContent = () => {
       };
 
       updateChannel(data);
-
-      if (isSuccess) {
-        toast.success(t('channel.renamed'));
-      }
-
-      if (isError) {
-        toast.error(renameChannelError.error);
-      }
-
-      handleClose();
       setSubmitting(false);
     },
   });
+
+  if (isSuccess) {
+    handleClose();
+    toast.success(t('channel.renamed'));
+    return null;
+  }
+
+  if (isError) {
+    handleClose();
+    toast.error(t('error.network'));
+    return null;
+  }
 
   return (
     <>
@@ -63,7 +64,7 @@ const RenameModalInnerContent = () => {
         <Button
           variant="close"
           type="button"
-          aria-label={t('modals.close')}
+          aria-label={t('modal.close')}
           data-bs-dismiss="modal"
           disabled={formik.isSubmitting}
           onClick={handleClose}
@@ -71,10 +72,10 @@ const RenameModalInnerContent = () => {
       </BsModal.Header>
       <BsModal.Body>
         <Form onSubmit={formik.handleSubmit}>
-          <Form.Group>
+          <InputGroup className="mb-4" hasValidation>
+            <Form.Label htmlFor="name" visuallyHidden>{t('channel.channelName')}</Form.Label>
             <Form.Control
               id="name"
-              className="mb-3"
               name="name"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -82,33 +83,29 @@ const RenameModalInnerContent = () => {
               isInvalid={isError || !formik.isValid}
               disabled={formik.isSubmitting}
             />
-            <Form.Control.Feedback type="invalid">
-              {renameChannelError?.error}
-              {' '}
-              {t(formik.errors?.name)}
-            </Form.Control.Feedback>
-            <div className="d-flex justify-content-end">
-              <Button
-                className="me-2"
-                variant="outline-secondary"
-                type="button"
-                onClick={handleClose}
-              >
-                {t('modals.cancel')}
-              </Button>
-              <Button
-                variant="secondary"
-                type="submit"
-                disabled={formik.isSubmitting}
-              >
-                {t('modals.submit')}
-              </Button>
-            </div>
-          </Form.Group>
+            <Form.Control.Feedback type="invalid" tooltip>{t(formik.errors?.name)}</Form.Control.Feedback>
+          </InputGroup>
+          <div className="d-flex justify-content-end">
+            <Button
+              className="me-2"
+              variant="secondary"
+              type="submit"
+              disabled={formik.isSubmitting}
+            >
+              {t('modal.submit')}
+            </Button>
+            <Button
+              variant="outline-secondary"
+              type="button"
+              onClick={handleClose}
+            >
+              {t('modal.cancel')}
+            </Button>
+          </div>
         </Form>
       </BsModal.Body>
     </>
   );
 };
 
-export default RenameModalInnerContent;
+export default RenameChannelModalInnerContent;

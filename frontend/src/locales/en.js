@@ -5,6 +5,9 @@ const en = {
       text: 'You can go',
       linkText: 'to the main page',
     },
+    error: {
+      network: 'Connection error. Try again later',
+    },
     login: {
       heading: 'Login',
       username: 'Your username',
@@ -41,11 +44,11 @@ const en = {
     },
     validation: {
       required: 'Required field',
-      min: 'Must be 3 to 20 characters',
-      max: 'Must be 3 to 20 characters',
+      min: 'Must be 5 to 20 characters',
+      max: 'Must be 5 to 20 characters',
       uniq: 'Must be unique',
     },
-    modals: {
+    modal: {
       cancel: 'Cancel',
       submit: 'Submit',
       remove: 'Remove channel',

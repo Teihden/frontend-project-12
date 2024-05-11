@@ -3,38 +3,40 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Button, Modal as BsModal } from 'react-bootstrap';
-import { actions } from '../store';
-import { useRemoveChannelMutation } from '../store/middlewares';
+import { actions } from '../../store';
+import { useRemoveChannelMutation } from '../../store/middlewares';
 
-const RemoveModalInnerContent = () => {
+const RemoveChannelModalInnerContent = () => {
   const channelId = useSelector((state) => state.ui.modal.channelId);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [removeChannel,
-    { error: removeChannelError, isError, isSuccess },
-  ] = useRemoveChannelMutation();
+  const [removeChannel, { isError, isSuccess }] = useRemoveChannelMutation();
 
   const handleClose = () => {
     dispatch(actions.closeModal());
   };
 
   const handleRemove = async () => {
+    console.debug('RemoveChannelModal channelId', channelId);
+
     setLoading(true);
     removeChannel(channelId);
-
-    if (isSuccess) {
-      dispatch(actions.setActiveChannelId({ channelId: '1' }));
-      toast.success(t('channel.removed'));
-    }
-
-    if (isError) {
-      toast.error(removeChannelError.error);
-    }
-
-    handleClose();
     setLoading(false);
   };
+
+  if (isSuccess) {
+    dispatch(actions.setActiveChannelId({ id: '1' }));
+    handleClose();
+    toast.success(t('channel.removed'));
+    return null;
+  }
+
+  if (isError) {
+    handleClose();
+    toast.error(t('error.network'));
+    return null;
+  }
 
   return (
     <>
@@ -44,30 +46,30 @@ const RemoveModalInnerContent = () => {
           variant="close"
           type="button"
           onClick={handleClose}
-          aria-label={t('modals.close')}
+          aria-label={t('modal.close')}
           data-bs-dismiss="modal"
           disabled={loading}
         />
       </BsModal.Header>
       <BsModal.Body>
-        <h2 className="h4">{t('modals.confirmation')}</h2>
+        <h2 className="h4">{t('modal.confirmation')}</h2>
         <div className="d-flex justify-content-end">
           <Button
             className="me-2"
-            variant="outline-secondary"
-            type="button"
-            onClick={handleClose}
-            disabled={loading}
-          >
-            {t('modals.cancel')}
-          </Button>
-          <Button
             variant="danger"
             type="button"
             onClick={handleRemove}
             disabled={loading}
           >
-            {t('modals.confirm')}
+            {t('modal.confirm')}
+          </Button>
+          <Button
+            variant="outline-secondary"
+            type="button"
+            onClick={handleClose}
+            disabled={loading}
+          >
+            {t('modal.cancel')}
           </Button>
         </div>
       </BsModal.Body>
@@ -75,4 +77,4 @@ const RemoveModalInnerContent = () => {
   );
 };
 
-export default RemoveModalInnerContent;
+export default RemoveChannelModalInnerContent;

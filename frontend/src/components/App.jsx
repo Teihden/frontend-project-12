@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import '../assets/styles/styles.scss';
 import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import NotFoundPage from './NotFoundPage.jsx';
 import ChatPage from './ChatPage.jsx';
 import LoginPage from './LoginPage.jsx';
@@ -30,6 +31,10 @@ const App = () => {
           <Route path={routes.loginPage()} element={<LoginPage />} />
         </Routes>
       </div>
+      <ToastContainer
+        theme="colored"
+        newestOnTop
+      />
     </BrowserRouter>
   );
 };

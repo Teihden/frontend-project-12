@@ -25,10 +25,10 @@ const Channels = () => {
           variant="outline-dark"
           title={t('channel.add')}
           aria-label={t('channel.add')}
-          style={{ width: '13%' }}
+          style={{ width: '11%' }}
           onClick={handleAddChannelBtnClick}
         >
-          <Plus size={22} />
+          <Plus size={20} />
         </Button>
       </div>
       <ul id="channels-box" className="h-100 d-block flex-column nav nav-pills nav-fill px-2 mb-3 overflow-auto">

@@ -24,7 +24,7 @@ const MessageForm = () => {
     validationSchema: messageSchema,
     validateOnBlur: false,
     onSubmit: async (values, { setSubmitting }) => {
-      console.debug(values);
+      console.debug('MessageForm values', values);
       setSubmitting(true);
 
       const message = {

@@ -26,7 +26,7 @@ const LoginPage = () => {
       password: '',
     },
     onSubmit: (values, { setSubmitting }) => {
-      console.debug(values);
+      console.debug('LoginPage values', values);
       setAuthFailed(false);
       setSubmitting(true);
 
@@ -91,7 +91,14 @@ const LoginPage = () => {
               <Form.Label>{t('loginPage.password')}</Form.Label>
               {authFailed && <Form.Control.Feedback type="invalid" tooltip>{t('loginPage.authFailed')}</Form.Control.Feedback>}
             </Form.Group>
-            <Button className="w-100 mb-2" variant="outline-secondary" type="submit" disabled={formik.isSubmitting}>{t('loginPage.submitBtn')}</Button>
+            <Button
+              className="w-100 mb-2"
+              variant="outline-secondary"
+              type="submit"
+              disabled={formik.isSubmitting}
+            >
+              {t('loginPage.submitBtn')}
+            </Button>
           </Form>
         </Card.Body>
         <Card.Footer className="p-2">
