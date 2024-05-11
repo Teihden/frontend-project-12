@@ -12,6 +12,7 @@ import ChatPage from './ChatPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import Navigation from './Navigation.jsx';
 import routes from '../api/routes.js';
+import RegistrationPage from './RegistrationPage';
 
 const App = () => {
   const authState = useSelector((state) => state.auth);
@@ -21,7 +22,6 @@ const App = () => {
       <div className="vh-100 d-flex flex-column">
         <Navigation />
         <Routes>
-          <Route path={routes.anyPage()} element={<NotFoundPage />} />
           <Route
             path={routes.rootPage()}
             element={authState?.userToken
@@ -29,6 +29,8 @@ const App = () => {
               : <Navigate to={routes.loginPage()} />}
           />
           <Route path={routes.loginPage()} element={<LoginPage />} />
+          <Route path={routes.signupPage()} element={<RegistrationPage />} />
+          <Route path={routes.anyPage()} element={<NotFoundPage />} />
         </Routes>
       </div>
       <ToastContainer

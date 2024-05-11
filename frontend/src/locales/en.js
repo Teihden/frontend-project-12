@@ -44,9 +44,12 @@ const en = {
     },
     validation: {
       required: 'Required field',
-      min: 'Must be 3 to 20 characters',
-      max: 'Must be 3 to 20 characters',
+      min_one: 'From {{count}} character',
+      min_other: 'From {{count}} characters',
+      max_one: 'Up to {{count}} character',
+      max_other: 'Up to {{count}} characters',
       uniq: 'Must be unique',
+      passwordMustMatch: 'Passwords must match',
     },
     modal: {
       cancel: 'Cancel',
@@ -55,6 +58,17 @@ const en = {
       confirmation: 'Are you sure?',
       confirm: 'Confirm',
       close: 'Close',
+    },
+    signupPage: {
+      heading: 'Signup',
+      usernamePlaceholder: 'From 3 to 20 characters',
+      username: 'Username',
+      password: 'Password',
+      passwordPlaceholder: 'At least 6 characters',
+      mustMatch: 'Passwords must match',
+      alreadyExists: 'Such a user already exists',
+      confirm: 'Confirm password',
+      submit: 'Sign up',
     },
   },
 };

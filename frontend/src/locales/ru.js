@@ -47,9 +47,12 @@ const ru = {
     },
     validation: {
       required: 'Обязательное поле',
-      min: 'От 3 до 20 символов',
-      max: 'От 3 до 20 символов',
+      min_one: 'От {{count}} символа',
+      min_other: 'От {{count}} символов',
+      max_one: 'До {{count}} символа',
+      max_other: 'До {{count}} символов',
       uniq: 'Должно быть уникальным',
+      passwordMustMatch: 'Пароли должны совпадать',
     },
     modal: {
       cancel: 'Отменить',
@@ -57,6 +60,17 @@ const ru = {
       confirmation: 'Уверены?',
       confirm: 'Удалить',
       close: 'Закрыть',
+    },
+    signupPage: {
+      heading: 'Регистрация',
+      usernamePlaceholder: 'От 3 до 20 символов',
+      username: 'Имя пользователя',
+      password: 'Пароль',
+      passwordPlaceholder: 'Не менее 6 символов',
+      mustMatch: 'Пароли должны совпадать',
+      alreadyExists: 'Такой пользователь уже существует',
+      confirm: 'Подтвердите пароль',
+      submit: 'Зарегистрироваться',
     },
   },
 };

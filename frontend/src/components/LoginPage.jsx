@@ -4,9 +4,10 @@ import { useFormik } from 'formik';
 import { Card, Form, Button } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { actions } from '../store';
 import { sendData } from '../api/httpApi.js';
-import image from '../assets/images/avatar-2.jpg';
+import avatar2 from '../assets/images/avatar-2.jpg';
 import routes from '../api/routes.js';
 
 const LoginPage = () => {
@@ -41,6 +42,8 @@ const LoginPage = () => {
           if (err.response?.status === 401) {
             setAuthFailed(true);
             inputRef.current.focus();
+          } else {
+            toast.error(t('error.network'));
           }
         },
         onFinallyCb: () => {
@@ -53,7 +56,7 @@ const LoginPage = () => {
   return (
     <div className="container-fluid h-100 d-flex justify-content-center align-content-center">
       <Card className="m-auto shadow-sm mw-100" style={{ width: 550, maxWidth: '100%' }}>
-        <Card.Img className="w-50 img-fluid mx-auto d-block rounded-circle mb-2" variant="top" src={image} />
+        <Card.Img className="w-50 img-fluid mx-auto d-block rounded-circle mb-2" variant="top" src={avatar2} alt={t('loginPage.heading')} />
         <Card.Header className="p-2">
           <h1 className="h3 text-center">{t('loginPage.heading')}</h1>
         </Card.Header>

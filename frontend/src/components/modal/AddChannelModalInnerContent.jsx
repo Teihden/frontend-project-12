@@ -86,7 +86,9 @@ const AddChannelModalInnerContent = () => {
               isInvalid={isError || !formik.isValid}
               disabled={formik.isSubmitting}
             />
-            <Form.Control.Feedback type="invalid" tooltip>{t(formik.errors?.name)}</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid" tooltip>
+              {t(formik.errors?.name, { count: formik.errors?.name === 'validation.min_other' ? 3 : 20 })}
+            </Form.Control.Feedback>
           </InputGroup>
           <div className="d-flex justify-content-end">
             <Button
