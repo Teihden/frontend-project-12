@@ -44,8 +44,8 @@ const en = {
     },
     validation: {
       required: 'Required field',
-      min: 'Must be 5 to 20 characters',
-      max: 'Must be 5 to 20 characters',
+      min: 'Must be 3 to 20 characters',
+      max: 'Must be 3 to 20 characters',
       uniq: 'Must be unique',
     },
     modal: {

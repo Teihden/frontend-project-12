@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import leoProfanity from 'leo-profanity';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -17,6 +17,7 @@ const AddChannelModalInnerContent = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [addChannel, { isError, isSuccess }] = useAddChannelMutation();
+  const inputRef = useRef(null);
 
   const handleClose = () => {
     dispatch(actions.closeModal());
@@ -41,6 +42,10 @@ const AddChannelModalInnerContent = () => {
       setSubmitting(false);
     },
   });
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   if (isSuccess) {
     handleClose();
@@ -74,6 +79,7 @@ const AddChannelModalInnerContent = () => {
             <Form.Control
               id="name"
               name="name"
+              ref={inputRef}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}

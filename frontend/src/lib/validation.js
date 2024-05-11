@@ -8,8 +8,8 @@ const getChannelNameSchema = (channels) => object().shape({
   name: string()
     .trim()
     .required('validation.required')
-    .min(5, 'validation.min')
-    .max(30, 'validation.max')
+    .min(3, 'validation.min')
+    .max(20, 'validation.max')
     .notOneOf(channels, 'validation.uniq'),
 });
 
