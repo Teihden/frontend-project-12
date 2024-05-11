@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+import leoProfanity from 'leo-profanity';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { Provider } from 'react-redux';
 import socketInit from './socket';
@@ -17,6 +18,8 @@ const init = async () => {
     });
 
   socketInit(store);
+
+  leoProfanity.loadDictionary('ru');
 
   return (
     <Provider store={store}>
