@@ -12,7 +12,9 @@ const RemoveChannelModalInnerContent = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [removeChannel, { error: removeChannelError, isError, isSuccess }] = useRemoveChannelMutation();
+  const [removeChannel,
+    { error: removeChannelError, isError, isSuccess },
+  ] = useRemoveChannelMutation();
   const state = store.getState();
   const rollbar = useRollbar();
 
