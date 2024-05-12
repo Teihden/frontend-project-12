@@ -73,7 +73,6 @@ const LoginPage = () => {
                 onChange={formik.handleChange}
                 value={formik.values.username}
                 placeholder={t('loginPage.username')}
-                title={t('loginPage.username')}
                 inputMode="text"
                 required
                 isInvalid={authFailed}
@@ -89,7 +88,6 @@ const LoginPage = () => {
                 onChange={formik.handleChange}
                 value={formik.values.password}
                 placeholder={t('loginPage.password')}
-                title={t('loginPage.password')}
                 inputMode="text"
                 required
                 isInvalid={authFailed}

@@ -23,7 +23,6 @@ const Channels = () => {
           className="p-0 ratio ratio-1x1"
           type="button"
           variant="outline-dark"
-          title={t('channel.add')}
           aria-label={t('channel.add')}
           style={{ width: '11%' }}
           onClick={handleAddChannelBtnClick}
