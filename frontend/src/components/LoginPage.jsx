@@ -65,7 +65,7 @@ const LoginPage = () => {
         </Card.Header>
         <Card.Body>
           <Form onSubmit={formik.handleSubmit}>
-            <Form.Group className="form-floating mb-2">
+            <Form.Group className="form-floating mb-3">
               <Form.Control
                 id="username"
                 name="username"
@@ -81,7 +81,7 @@ const LoginPage = () => {
               />
               <Form.Label>{t('loginPage.username')}</Form.Label>
             </Form.Group>
-            <Form.Group className="form-floating mb-3">
+            <Form.Group className="form-floating mb-4">
               <Form.Control
                 id="password"
                 name="password"
