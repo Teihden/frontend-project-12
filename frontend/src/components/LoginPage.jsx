@@ -1,3 +1,4 @@
+import { useRollbar } from '@rollbar/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -16,6 +17,7 @@ const LoginPage = () => {
   const inputRef = useRef();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const rollbar = useRollbar();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -43,6 +45,7 @@ const LoginPage = () => {
             setAuthFailed(true);
             inputRef.current.focus();
           } else {
+            rollbar.error('LoginPage sendData error', err);
             toast.error(t('error.network'));
           }
         },

@@ -1,3 +1,4 @@
+import { useRollbar } from '@rollbar/react';
 import { useFormik } from 'formik';
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
@@ -17,6 +18,7 @@ const RegistrationPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const rollbar = useRollbar();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -46,6 +48,7 @@ const RegistrationPage = () => {
             setRegistrationFailed(true);
             inputRef.current.select();
           } else {
+            rollbar.error('RegistrationPage sendData error', err);
             toast.error(t('error.network'));
           }
         },

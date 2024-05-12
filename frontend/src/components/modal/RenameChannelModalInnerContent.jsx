@@ -1,3 +1,4 @@
+import { useRollbar } from '@rollbar/react';
 import { useFormik } from 'formik';
 import leoProfanity from 'leo-profanity';
 import React, { useEffect, useRef } from 'react';
@@ -18,8 +19,9 @@ const RenameChannelModalInnerContent = () => {
   const { name } = channels.find(({ id }) => channelId === id);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [updateChannel, { isError, isSuccess }] = useEditChannelMutation();
+  const [updateChannel, { error: editChannelError, isError, isSuccess }] = useEditChannelMutation();
   const inputRef = useRef(null);
+  const rollbar = useRollbar();
 
   const handleClose = () => {
     dispatch(actions.closeModal());
@@ -58,6 +60,7 @@ const RenameChannelModalInnerContent = () => {
 
   if (isError) {
     handleClose();
+    rollbar.error('RenameChannelModalInnerContent editChannelError', editChannelError);
     toast.error(t('error.network'));
     return null;
   }

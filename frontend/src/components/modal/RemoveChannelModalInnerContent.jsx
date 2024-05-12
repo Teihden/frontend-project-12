@@ -1,3 +1,4 @@
+import { useRollbar } from '@rollbar/react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,8 +12,9 @@ const RemoveChannelModalInnerContent = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [removeChannel, { isError, isSuccess }] = useRemoveChannelMutation();
+  const [removeChannel, { error: removeChannelError, isError, isSuccess }] = useRemoveChannelMutation();
   const state = store.getState();
+  const rollbar = useRollbar();
 
   const handleClose = () => {
     dispatch(actions.closeModal());
@@ -35,6 +37,7 @@ const RemoveChannelModalInnerContent = () => {
 
   if (isError) {
     handleClose();
+    rollbar.error('RemoveChannelModalInnerContent removeChannelError', removeChannelError);
     toast.error(t('error.network'));
     return null;
   }
