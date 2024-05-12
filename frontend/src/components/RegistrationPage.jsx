@@ -85,7 +85,7 @@ const RegistrationPage = () => {
               <Form.Label htmlFor="username">{t('signupPage.username')}</Form.Label>
               {!registrationFailed && (
                 <Form.Control.Feedback type="invalid" tooltip placement="right">
-                  {t(formik.errors.username, { count: formik.errors?.username === 'validation.min_other' ? 3 : 20 })}
+                  {t(formik.errors.username)}
                 </Form.Control.Feedback>
               )}
             </Form.Group>

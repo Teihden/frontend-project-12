@@ -50,6 +50,7 @@ const en = {
       max_other: 'Up to {{count}} characters',
       uniq: 'Must be unique',
       passwordMustMatch: 'Passwords must match',
+      usernameCharacters: 'From 3 to 20 characters',
     },
     modal: {
       cancel: 'Cancel',

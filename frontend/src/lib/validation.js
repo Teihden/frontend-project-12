@@ -17,8 +17,8 @@ const signUpSchema = object().shape({
   username: string()
     .trim()
     .required('validation.required')
-    .min(3, 'validation.min_other')
-    .max(20, 'validation.max_other'),
+    .min(3, 'validation.usernameCharacters')
+    .max(20, 'validation.usernameCharacters'),
   password: string()
     .trim()
     .required('validation.required')

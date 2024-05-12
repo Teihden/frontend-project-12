@@ -53,6 +53,7 @@ const ru = {
       max_other: 'До {{count}} символов',
       uniq: 'Должно быть уникальным',
       passwordMustMatch: 'Пароли должны совпадать',
+      usernameCharacters: 'От 3 до 20 символов',
     },
     modal: {
       cancel: 'Отменить',
