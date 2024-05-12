@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonGroup, Dropdown } from 'react-bootstrap';
-import { actions } from '../store';
+import { actions } from '../../store';
 
 const Channel = ({ data }) => {
   const { id, name, removable } = data;

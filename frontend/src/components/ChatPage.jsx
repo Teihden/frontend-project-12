@@ -1,9 +1,8 @@
 import { useGetChannelsQuery, useGetMessagesQuery } from '../store/middlewares';
-import Channels from './Channels.jsx';
-import Messages from './Messages.jsx';
-import Modal from './modal/Modal';
+import { Channels } from './channel';
+import { MessageForm, Messages } from './message';
+import { Modal } from './modal';
 import Spinner from './Spinner.jsx';
-import MessageForm from './MessageForm';
 
 const ChatPage = () => {
   const { isLoading: isChannelsLoading } = useGetChannelsQuery();

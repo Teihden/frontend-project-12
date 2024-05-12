@@ -88,6 +88,7 @@ const RenameChannelModalInnerContent = () => {
               value={formik.values.name}
               isInvalid={isError || !formik.isValid}
               disabled={formik.isSubmitting}
+              inputMode="text"
             />
             <Form.Control.Feedback type="invalid" tooltip>
               {t(formik.errors?.name, { count: formik.errors?.name === 'validation.min_other' ? 3 : 20 })}

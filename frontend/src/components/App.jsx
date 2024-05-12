@@ -1,8 +1,5 @@
 import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
+  BrowserRouter, Routes, Route, Navigate,
 } from 'react-router-dom';
 import '../assets/styles/styles.scss';
 import { useSelector } from 'react-redux';
@@ -11,8 +8,8 @@ import NotFoundPage from './NotFoundPage.jsx';
 import ChatPage from './ChatPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import Navigation from './Navigation.jsx';
-import routes from '../api/routes.js';
 import RegistrationPage from './RegistrationPage';
+import routes from '../api/routes.js';
 
 const App = () => {
   const authState = useSelector((state) => state.auth);

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useGetChannelsQuery, useGetMessagesQuery } from '../store/middlewares/index';
+import { useGetChannelsQuery, useGetMessagesQuery } from '../../store/middlewares/index';
 import Message from './Message.jsx';
 
 const Messages = () => {

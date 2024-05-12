@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'react-bootstrap';
 import { Plus } from 'react-bootstrap-icons';
 import { useDispatch } from 'react-redux';
-import { useGetChannelsQuery } from '../store/middlewares';
+import { useGetChannelsQuery } from '../../store/middlewares';
 import Channel from './Channel.jsx';
-import { actions } from '../store';
+import { actions } from '../../store';
 
 const Channels = () => {
   const { t } = useTranslation();

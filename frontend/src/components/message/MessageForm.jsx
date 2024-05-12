@@ -5,8 +5,8 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 import { Send } from 'react-bootstrap-icons';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { messageSchema } from '../lib/validation';
-import { useAddMessageMutation } from '../store/middlewares';
+import { messageSchema } from '../../lib/validation';
+import { useAddMessageMutation } from '../../store/middlewares';
 
 const MessageForm = () => {
   const { t } = useTranslation();
