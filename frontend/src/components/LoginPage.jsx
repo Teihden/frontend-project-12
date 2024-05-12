@@ -79,7 +79,7 @@ const LoginPage = () => {
                 isInvalid={authFailed}
                 ref={inputRef}
               />
-              <Form.Label>{t('loginPage.username')}</Form.Label>
+              <Form.Label htmlFor="username">{t('loginPage.username')}</Form.Label>
             </Form.Group>
             <Form.Group className="form-floating mb-4">
               <Form.Control
@@ -95,7 +95,7 @@ const LoginPage = () => {
                 required
                 isInvalid={authFailed}
               />
-              <Form.Label>{t('loginPage.password')}</Form.Label>
+              <Form.Label htmlFor="password">{t('loginPage.password')}</Form.Label>
               {authFailed && <Form.Control.Feedback type="invalid" tooltip>{t('loginPage.authFailed')}</Form.Control.Feedback>}
             </Form.Group>
             <Button
