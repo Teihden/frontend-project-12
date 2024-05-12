@@ -107,7 +107,7 @@ const RegistrationPage = () => {
               />
               {!registrationFailed && (
                 <Form.Control.Feedback type="invalid" tooltip>
-                  {t(formik.errors?.password, { count: 6 })}
+                  {t(formik.errors?.password)}
                 </Form.Control.Feedback>
               )}
               <Form.Label htmlFor="password">{t('signupPage.password')}</Form.Label>

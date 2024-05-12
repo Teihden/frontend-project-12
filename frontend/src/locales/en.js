@@ -44,13 +44,10 @@ const en = {
     },
     validation: {
       required: 'Required field',
-      min_one: 'From {{count}} character',
-      min_other: 'From {{count}} characters',
-      max_one: 'Up to {{count}} character',
-      max_other: 'Up to {{count}} characters',
+      min: 'From 3 to 20 characters',
+      max: 'From 3 to 20 characters',
       uniq: 'Must be unique',
       passwordMustMatch: 'Passwords must match',
-      usernameCharacters: 'From 3 to 20 characters',
       passwordCharacters: 'At least 6 characters',
     },
     modal: {

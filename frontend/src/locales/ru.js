@@ -47,13 +47,10 @@ const ru = {
     },
     validation: {
       required: 'Обязательное поле',
-      min_one: 'От {{count}} символа',
-      min_other: 'От {{count}} символов',
-      max_one: 'До {{count}} символа',
-      max_other: 'До {{count}} символов',
+      min: 'От 3 до 20 символов',
+      max: 'От 3 до 20 символов',
       uniq: 'Должно быть уникальным',
       passwordMustMatch: 'Пароли должны совпадать',
-      usernameCharacters: 'От 3 до 20 символов',
       passwordCharacters: 'Не менее 6 символов',
     },
     modal: {

@@ -94,7 +94,7 @@ const RenameChannelModalInnerContent = () => {
               inputMode="text"
             />
             <Form.Control.Feedback type="invalid" tooltip>
-              {t(formik.errors?.name, { count: formik.errors?.name === 'validation.min_other' ? 3 : 20 })}
+              {t(formik.errors?.name)}
             </Form.Control.Feedback>
           </InputGroup>
           <div className="d-flex justify-content-end">
