@@ -11,7 +11,7 @@ const ru = {
     loginPage: {
       heading: 'Войти',
       username: 'Ваш ник',
-      password: 'Ваш пароль',
+      password: 'Пароль',
       submitBtn: 'Войти',
       signup: 'Регистрация',
       noAccount: 'Нет аккаунта?',

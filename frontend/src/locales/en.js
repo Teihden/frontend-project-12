@@ -11,7 +11,7 @@ const en = {
     login: {
       heading: 'Login',
       username: 'Your username',
-      password: 'Your password',
+      password: 'Password',
       submitBtn: 'Submit',
       signup: 'Sign up',
       noAccount: 'New to chat?',
