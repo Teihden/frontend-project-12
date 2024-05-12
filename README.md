@@ -32,12 +32,12 @@ make start-frontend
 make start-backend
 
 # Runs concurrent development for both frontend and backend in watch mode
-make start
+make develop
 
 # Cleans the frontend build directory (frontend/build) and runs the build process
 make build
 
 # Starts the server to serve the application in a production environment.
-make server
+make start
 ```
 
