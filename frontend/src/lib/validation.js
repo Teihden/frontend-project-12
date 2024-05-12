@@ -22,7 +22,7 @@ const signUpSchema = object().shape({
   password: string()
     .trim()
     .required('validation.required')
-    .min(6, 'validation.min_other'),
+    .min(6, 'validation.passwordCharacters'),
   confirmPassword: string()
     .test(
       'confirmPassword',

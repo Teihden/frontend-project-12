@@ -51,6 +51,7 @@ const en = {
       uniq: 'Must be unique',
       passwordMustMatch: 'Passwords must match',
       usernameCharacters: 'From 3 to 20 characters',
+      passwordCharacters: 'At least 6 characters',
     },
     modal: {
       cancel: 'Cancel',

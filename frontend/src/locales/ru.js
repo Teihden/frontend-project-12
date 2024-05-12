@@ -54,6 +54,7 @@ const ru = {
       uniq: 'Должно быть уникальным',
       passwordMustMatch: 'Пароли должны совпадать',
       usernameCharacters: 'От 3 до 20 символов',
+      passwordCharacters: 'Не менее 6 символов',
     },
     modal: {
       cancel: 'Отменить',
