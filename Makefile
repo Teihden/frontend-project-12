@@ -1,8 +1,8 @@
 lint-frontend:
 	make -C frontend lint
 
-ci:
-	npm ci
+install:
+	npm install
 
 start-frontend:
 	make -C frontend start
@@ -10,7 +10,7 @@ start-frontend:
 start-backend:
 	npx start-server
 
-develop:
+start:
 	make start-backend & make start-frontend
 
 build:

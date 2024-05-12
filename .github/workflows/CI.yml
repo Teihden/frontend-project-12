@@ -27,5 +27,5 @@ jobs:
 
       - name: Install, lint project
         run: |
-          make ci
+          make install
           make lint-frontend

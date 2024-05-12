@@ -1,6 +1,7 @@
 # Project "Chat (Slack)"
 [![Actions Status](https://github.com/Teihden/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Teihden/frontend-project-12/actions)
 [![CI](https://github.com/Teihden/frontend-project-12/workflows/CI/badge.svg)](https://github.com/Teihden/frontend-project-12/actions/workflows/CI.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ab4e24907817cc4a0163/maintainability)](https://codeclimate.com/github/Teihden/frontend-project-12/maintainability)
 
 ## About
 
@@ -22,7 +23,7 @@ cd frontend-project-12
 make lint-frontend
 
 # Performs installation of project dependencies from package.json
-make ci
+make install
 
 # Starts the development server for the frontend
 make start-frontend
@@ -31,7 +32,7 @@ make start-frontend
 make start-backend
 
 # Runs concurrent development for both frontend and backend in watch mode
-make develop
+make start
 
 # Cleans the frontend build directory (frontend/build) and runs the build process
 make build
