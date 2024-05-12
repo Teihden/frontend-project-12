@@ -21,7 +21,8 @@ const init = async () => {
 
   socketInit(store);
 
-  leoProfanity.loadDictionary('ru');
+  leoProfanity.add(leoProfanity.getDictionary('ru'));
+  leoProfanity.add(leoProfanity.getDictionary('en'));
 
   return (
     <RollbarProvider config={rollbarConfig}>
