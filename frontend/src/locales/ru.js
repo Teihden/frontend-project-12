@@ -6,7 +6,7 @@ const ru = {
       linkText: 'на главную страницу',
     },
     error: {
-      network: 'Ошибка соединения. Попробуйте позже',
+      network: 'Ошибка соединения',
     },
     loginPage: {
       heading: 'Войти',
