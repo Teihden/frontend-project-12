@@ -77,6 +77,7 @@ const RegistrationPage = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.username}
                 placeholder={t('signupPage.usernamePlaceholder')}
+                title={t('signupPage.usernamePlaceholder')}
                 isInvalid={formik.errors.username || registrationFailed}
                 autoComplete="username"
                 inputMode="text"
@@ -98,6 +99,7 @@ const RegistrationPage = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
                 placeholder={t('signupPage.passwordPlaceholder')}
+                title={t('signupPage.passwordPlaceholder')}
                 isInvalid={formik.errors.password || registrationFailed}
                 autoComplete="new-password"
                 inputMode="text"
@@ -119,6 +121,7 @@ const RegistrationPage = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.confirmPassword}
                 placeholder={t('signupPage.mustMatch')}
+                title={t('signupPage.mustMatch')}
                 isInvalid={formik.errors.confirmPassword || registrationFailed}
                 autoComplete="new-password"
                 inputMode="text"
